@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(360deg, #000000 0%, #1E1E1E 59.13%), #000000;
+    overflow: hidden;
+    padding: 20px;
+
+    .logoContainer {
+        max-width: 250px;
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

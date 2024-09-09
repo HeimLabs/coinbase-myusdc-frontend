@@ -1,0 +1,36 @@
+@import "variables";
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,600,700";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: black;
+    font-family: "Poppins";
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+        font-family: "Poppins";
+    }
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    min-width: 320px;
+    max-width: 450px;
+    min-height: 100vh;
+}

@@ -1,0 +1,14 @@
+@mixin center($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
