@@ -12,3 +12,7 @@ export { default as profileIcon } from "./profileIcon.svg";
 export { default as profileActiveIcon } from "./profileActiveIcon.svg";
 export { default as profileAltIcon } from "./profileAltIcon.svg";
 export { default as backIcon } from "./backIcon.svg";
+export { default as amexLogo } from "./amexLogo.svg";
+export { default as qrIcon } from "./qrIcon.svg";
+export { default as buyIcon } from "./buyIcon.svg";
+export { default as sendIcon } from "./sendIcon.svg";

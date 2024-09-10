@@ -4,6 +4,9 @@ import styles from "./Splash.module.scss";
 import { useAppUser } from "../../contexts/user.context";
 import { useEffect, useState } from "react";
 
+// @todo - Animations
+// @fix - Overlay splash above header and footer
+
 export default function Splash() {
     const navigate = useNavigate();
     const { user, isUserLoading, clerkUser } = useAppUser();

@@ -1,0 +1,85 @@
+.cardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 150px;
+        border-radius: 0px 0px 20px 20px;
+        background-image: url("../../../assets/cardDesign.png");
+        background-size: cover;
+        padding: 20px;
+
+        .cardRow {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+
+            .cardInfo {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+            }
+
+            &.topRow {
+                img {
+                    margin-top: 10px;
+                }
+            }
+
+            &.bottomRow {
+                align-items: end;
+
+                span {
+                    font-size: xx-large;
+                    font-weight: bold;
+                }
+
+                img {
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .actionContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 10px;
+
+        .actionBttn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: black;
+            outline: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken(white, 95%);
+            }
+        }
+    }
+}

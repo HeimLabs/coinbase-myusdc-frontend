@@ -1,5 +1,24 @@
 @import "../../styles/variables";
 
 .main {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+    gap: 25px;
+
+    h4 {
+        font-size: medium;
+        font-weight: 400;
+    }
+
+    .walletContainer {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
 }
