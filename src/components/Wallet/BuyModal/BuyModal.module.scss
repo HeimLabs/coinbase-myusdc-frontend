@@ -1,158 +1,126 @@
 @import "../../../styles/animations";
 
 .main {
-    position: absolute;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     width: 100%;
-    height: 100vh;
-    z-index: 9;
-    visibility: hidden;
 
-    &.open {
-        visibility: visible;
+    .fadingHr {
+        width: 95%;
+        height: 1px;
+        border: none;
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0));
     }
 
-    .modal {
-        position: fixed;
-        bottom: -100%;
-        z-index: 10;
+    .title {
+        color: #797979;
+        font-weight: 600;
+        font-size: large;
+    }
+
+    .amountInput {
         width: 100%;
-        min-width: 320px;
-        max-width: 450px;
+        padding: 15px 0px;
+        text-align: center;
+        border: none;
+        outline: none;
         background-color: black;
-        padding: 20px;
-        border-radius: 30px 30px 0px 0px;
-        height: 50vh;
-        box-shadow: 0px 0px 20px #9cbbdf8b;
+        color: white;
+        font-weight: bold;
+        font-size: xx-large;
+
+        &::placeholder {
+            color: darken(#797979, 40%);
+        }
+    }
+
+    .quickAddContainer {
         display: flex;
         align-items: center;
-        justify-content: start;
-        flex-direction: column;
-        transition-duration: 0.3s;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 20px 0px;
 
-
-        &.open {
-            bottom: 0;
-            transition-duration: 0.3s;
-        }
-
-        .fadingHr {
-            width: 95%;
-            height: 1px;
-            border: none;
-            background: linear-gradient(to right,
-                    rgba(255, 255, 255, 0),
-                    rgba(255, 255, 255, 1) 50%,
-                    rgba(255, 255, 255, 0));
-        }
-
-        .title {
-            color: #797979;
-            font-weight: 600;
-            font-size: large;
-        }
-
-        .amountInput {
-            width: 100%;
-            padding: 15px 0px;
-            text-align: center;
-            border: none;
-            outline: none;
-            background-color: black;
-            color: white;
-            font-weight: bold;
-            font-size: xx-large;
-
-            &::placeholder {
-                color: darken(#797979, 40%);
-            }
-        }
-
-        .quickAddContainer {
+        .quickOption {
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
-            width: 100%;
-            padding: 20px 0px;
-
-            .quickOption {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #1E1E1E;
-                padding: 5px 0px;
-                border-radius: 10px;
-                width: 65px;
-                cursor: pointer;
-
-                &:hover,
-                &:active {
-                    background-color: lighten(#1E1E1E, 5%);
-                }
-            }
-        }
-
-        .cardSelectionContainer {
-            padding: 10px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: start;
             justify-content: center;
-            width: 100%;
-
-            span {
-                font-size: x-small;
-                color: #797979;
-            }
-
-            .cardOption {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                width: 100%;
-                padding: 10px 5px;
-                border-radius: 10px;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: darken(white, 95%);
-                }
-
-                .cardDetails {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 5px;
-                }
-            }
-        }
-
-        .loading {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-
-        button {
-            background-color: white;
-            color: black;
+            background-color: #1E1E1E;
+            padding: 5px 0px;
             border-radius: 10px;
-            padding: 5px 10px;
-            margin: 20px;
-            outline: none;
-            border: none;
+            width: 65px;
+            cursor: pointer;
+
+            &:hover,
+            &:active {
+                background-color: lighten(#1E1E1E, 5%);
+            }
+        }
+    }
+
+    .cardSelectionContainer {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        width: 100%;
+
+        span {
+            font-size: x-small;
+            color: #797979;
+        }
+
+        .cardOption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 5px;
+            border-radius: 10px;
             cursor: pointer;
 
             &:hover {
-                background-color: darken(white, 20%);
+                background-color: darken(white, 95%);
             }
 
-            &:disabled {
-                background-color: darken(white, 90%);
-                cursor: default;
+            .cardDetails {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
             }
+        }
+    }
+
+    .loading {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+
+    button {
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin: 20px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(white, 20%);
+        }
+
+        &:disabled {
+            background-color: darken(white, 90%);
+            cursor: default;
         }
     }
 }

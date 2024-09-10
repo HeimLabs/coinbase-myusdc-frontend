@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { amexLogo, radioSelectedIcon } from "../../../assets";
 import styles from "./BuyModal.module.scss";
 import { useFundWallet } from "../../../hooks/useFundWallet";
 import { Coinbase } from "@coinbase/coinbase-sdk";
+import Modal from "../Modal";
 
 export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen: Dispatch<SetStateAction<boolean>> }) {
-    const modalRef = useRef<HTMLDivElement | null>(null);
     const [amount, setAmount] = useState<number | undefined>();
     const { fundWallet, isPending, isSuccess } = useFundWallet(Coinbase.assets.Usdc, amount || 0);
 
@@ -20,26 +20,10 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
             setOpen(false);
     }, [isSuccess])
 
-    // Handle Modal Close
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (modalRef.current && !modalRef.current.contains(event.target as Node) && !isPending) {
-                setOpen(!isOpen);
-            }
-        };
-
-        if (isOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isOpen, setOpen]);
 
     return (
-        <div className={`${styles.main} ${isOpen ? styles.open : ""}`}>
-            <div ref={modalRef} className={`${styles.modal} ${isOpen ? styles.open : ""}`}>
+        <Modal isOpen={isOpen} setOpen={setOpen}>
+            <div className={styles.main}>
                 {/* TITLE */}
                 <span className={styles.title}>Buy USDC</span>
                 {/* AMOUNT INPUT */}
@@ -73,6 +57,6 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
                 <div className={styles.fadingHr} />
                 <button className={`${isPending ? styles.loading : ""}`} onClick={() => fundWallet()} disabled={isPending}>Deposit</button>
             </div>
-        </div>
+        </Modal>
     );
 }
