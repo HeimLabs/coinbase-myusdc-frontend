@@ -1,0 +1,37 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    position: sticky;
+    gap: 10px;
+    bottom: 0px;
+    
+    .fadingHr {
+        width: 95%;
+        height: 1px;
+        border: none;
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0));
+    }
+
+    .tabContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+
+        .tab {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: smaller;
+            gap: 10px;
+            cursor: pointer;
+        }
+    }
+}
