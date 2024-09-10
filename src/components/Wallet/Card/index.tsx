@@ -3,11 +3,13 @@ import { useAppUser } from "../../../contexts/user.context";
 import styles from "./Card.module.scss";
 import BuyModal from "../BuyModal";
 import { useState } from "react";
+import QrModal from "../QrModal";
 
 export default function Card() {
     const { user } = useAppUser();
 
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+    const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
 
     return (
@@ -23,7 +25,7 @@ export default function Card() {
                 </div>
                 <div className={`${styles.cardRow} ${styles.bottomRow}`}>
                     <span>${user?.wallet.usdBalance.toLocaleString(undefined, { maximumFractionDigits: 3 })}</span>
-                    <img src={qrIcon} alt="QR" />
+                    <img onClick={()=>setIsQrModalOpen(true)} src={qrIcon} alt="QR" />
                 </div>
             </div>
             {/* ACTIONS */}
@@ -38,6 +40,7 @@ export default function Card() {
                 </button>
             </div>
             <BuyModal isOpen={isBuyModalOpen} setOpen={setIsBuyModalOpen} />
+            <QrModal isOpen={isQrModalOpen} setOpen={setIsQrModalOpen} />
         </div>
     );
 }

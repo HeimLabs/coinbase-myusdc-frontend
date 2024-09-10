@@ -1,0 +1,46 @@
+@import "../../../styles/animations";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+
+    .fadingHr {
+        width: 95%;
+        height: 1px;
+        border: none;
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0));
+    }
+
+    .title {
+        color: #797979;
+        font-weight: 600;
+        font-size: large;
+    }
+
+    .subtitle {
+        color: white;
+        font-weight: 100;
+        font-size: x-small;
+    }
+
+    .addressContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        
+        img {
+            height: 20px;
+            width: auto;
+            cursor: pointer;
+        }
+    }
+    
+}
