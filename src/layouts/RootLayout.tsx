@@ -3,7 +3,7 @@ import { ClerkProvider, SignedIn } from '@clerk/clerk-react';
 import { UserProvider } from '../contexts/user.context.tsx';
 import BottomNavBar from '../components/BottomNavBar';
 import Header from '../components/Header';
-import styles from "../styles/RootLayout.module.scss";
+import styles from "../styles/Layout.module.scss";
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;

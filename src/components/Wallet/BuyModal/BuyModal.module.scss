@@ -1,3 +1,5 @@
+@import "../../../styles/animations";
+
 .main {
     position: absolute;
     display: flex;
@@ -127,6 +129,12 @@
             }
         }
 
+        .loading {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
         button {
             background-color: white;
             color: black;
@@ -139,6 +147,11 @@
 
             &:hover {
                 background-color: darken(white, 20%);
+            }
+
+            &:disabled {
+                background-color: darken(white, 90%);
+                cursor: default;
             }
         }
     }

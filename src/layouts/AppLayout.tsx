@@ -1,6 +1,7 @@
-import { useAuth } from '@clerk/clerk-react'
-import { Outlet, useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useAuth } from '@clerk/clerk-react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import styles from "../styles/Layout.module.scss";
 
 export default function AppLayout() {
     const { userId, isLoaded } = useAuth()
@@ -14,5 +15,9 @@ export default function AppLayout() {
 
     if (!isLoaded) return 'Loading...'
 
-    return <Outlet />
+    return (
+        <div className={styles.appLayout}>
+            <Outlet />
+        </div>
+    )
 }
