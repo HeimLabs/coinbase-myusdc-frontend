@@ -2,6 +2,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { ClerkProvider, SignedIn } from '@clerk/clerk-react';
 import { UserProvider } from '../contexts/user.context.tsx';
 import BottomNavBar from '../components/BottomNavBar';
+import Header from '../components/Header';
 import styles from "../styles/RootLayout.module.scss";
 
 
@@ -22,11 +23,9 @@ export default function RootLayout() {
         >
             <UserProvider>
                 {/* HEADER HERE */}
-                {/* <header className="header">
                 <SignedIn>
-                    <UserButton />
+                    <Header />
                 </SignedIn>
-            </header> */}
                 <main className={styles.rootLayout}>
                     <Outlet />
                 </main>

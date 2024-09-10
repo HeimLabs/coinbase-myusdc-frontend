@@ -11,3 +11,4 @@ export { default as walletActiveIcon } from "./walletActiveIcon.svg";
 export { default as profileIcon } from "./profileIcon.svg";
 export { default as profileActiveIcon } from "./profileActiveIcon.svg";
 export { default as profileAltIcon } from "./profileAltIcon.svg";
+export { default as backIcon } from "./backIcon.svg";
