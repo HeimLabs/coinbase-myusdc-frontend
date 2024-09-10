@@ -16,3 +16,4 @@ export { default as amexLogo } from "./amexLogo.svg";
 export { default as qrIcon } from "./qrIcon.svg";
 export { default as buyIcon } from "./buyIcon.svg";
 export { default as sendIcon } from "./sendIcon.svg";
+export { default as radioSelectedIcon } from "./radioSelectedIcon.svg";

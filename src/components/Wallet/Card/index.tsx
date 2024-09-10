@@ -1,9 +1,14 @@
 import { amexLogo, buyIcon, qrIcon, sendIcon } from "../../../assets";
 import { useAppUser } from "../../../contexts/user.context";
 import styles from "./Card.module.scss";
+import BuyModal from "../BuyModal";
+import { useState } from "react";
 
 export default function Card() {
     const { user } = useAppUser();
+
+    const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+
 
     return (
         <div className={styles.cardContainer}>
@@ -23,7 +28,7 @@ export default function Card() {
             </div>
             {/* ACTIONS */}
             <div className={styles.actionContainer}>
-                <button className={styles.actionBttn}>
+                <button onClick={() => setIsBuyModalOpen(true)} className={styles.actionBttn}>
                     <img src={buyIcon} alt="Buy" />
                     <span>Buy USDC</span>
                 </button>
@@ -32,6 +37,7 @@ export default function Card() {
                     <span>Send USDC</span>
                 </button>
             </div>
+            <BuyModal isOpen={isBuyModalOpen} setOpen={setIsBuyModalOpen} />
         </div>
     );
 }
