@@ -1,5 +1,146 @@
 @import "../../styles/variables";
 
 .main {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    gap: 20px;
+
+    .userContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+        padding: 20px 20px;
+        border-radius: 10px;
+
+        .userDetails {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            .title {
+                font-size: x-large;
+                font-weight: bold;
+            }
+
+            .subtitle {
+                font-size: small;
+                font-weight: 100;
+            }
+        }
+
+        .pfpContainer {
+            height: 70px;
+            width: 70px;
+            position: relative;
+
+            .pfp {
+                height: 100%;
+                border-radius: 100%;
+            }
+
+            .qr {
+                position: absolute;
+                bottom: -5px;
+                right: 5px;
+                height: 25px;
+                width: auto;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .actionContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+        padding: 20px 20px;
+        border-radius: 10px;
+
+        .actionRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            .details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                img {
+                    height: 30px;
+                    width: auto;
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    justify-content: center;
+
+                    .balance {
+                        font-size: medium;
+                        font-weight: bold;
+                    }
+
+                    .subtitle {
+                        font-size: small;
+                    }
+                }
+            }
+        }
+    }
+
+    .bttn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        &.dark {
+            color: white;
+            background-color: black;
+
+            &:hover {
+                background-color: darken(white, 95%);
+            }
+        }
+
+        &.light {
+            color: black;
+            background-color: white;
+
+            &:hover {
+                background-color: darken(white, 10%);
+            }
+        }
+
+    }
+
+    .appDetails {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .subtitle {
+            font-size: small;
+            color: #AAAA;
+        }
+    }
 }
