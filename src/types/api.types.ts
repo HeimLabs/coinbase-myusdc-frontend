@@ -50,9 +50,11 @@ export type GetTransfersResponse = {
     transfers: Transfer[]
 }
 
+export type RecentContact = {
+    destinationAddress: string,
+    destinationUser: User | null
+}
+
 export type GetRecentContactsResponse = {
-    recentContacts: {
-        destinationAddress: string,
-        destinationUser: User | null
-    }[]
+    recentContacts: RecentContact[]
 }
