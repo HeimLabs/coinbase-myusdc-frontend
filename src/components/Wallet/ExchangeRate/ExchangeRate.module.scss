@@ -1,0 +1,76 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+
+    .hr {
+        background-color: black;
+        height: 2px;
+        width: 100%;
+    }
+
+    .exchangeContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        width: 100%;
+        background-size: cover;
+
+        .countryContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 10px;
+
+            img {
+                height: 25px;
+                width: auto;
+            }
+
+            span {
+                font-size: small;
+            }
+
+        }
+
+        .rateContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+
+            .change {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+
+                &.changeUp {
+                    color: #20C505;
+                }
+
+                &.changeDown {
+                    color: red;
+                }
+
+                img {
+                    height: 10px;
+                    width: auto;
+                }
+            }
+
+            @media screen and (max-width: 355px) {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    }
+}

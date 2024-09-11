@@ -1,6 +1,7 @@
 import Card from "../../components/Wallet/Card";
 import MyUsdc from "../../components/Wallet/MyUsdc";
 import QuickTransfer from "../../components/Wallet/QuickTransfer";
+import ExchangeRate from "../../components/Wallet/ExchangeRate";
 import styles from "./Wallet.module.scss";
 
 // @todo - Skeleton loaders
@@ -20,6 +21,10 @@ export default function Wallet() {
             <div className={styles.sectionContainer}>
                 <h4>Quick Transfer</h4>
                 <QuickTransfer />
+            </div>
+            <div className={styles.sectionContainer}>
+                <h4>Exchange Rate</h4>
+                <ExchangeRate />
             </div>
         </div>
     );

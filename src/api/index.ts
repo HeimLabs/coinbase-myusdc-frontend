@@ -3,6 +3,7 @@ import {
     FundWalletRequest,
     GetRecentContactsResponse,
     GetTransfersResponse,
+    GetUsdRatesResponse,
     GetUserResponse,
     TransferAssetRequest
 } from "../types/api.types";
@@ -29,4 +30,7 @@ const getRecentContacts = async (token: string) =>
     api.get<GetRecentContactsResponse>("/wallet/recent-contacts",
         { headers: { Authorization: `Bearer ${token}` } });
 
-export { api, getUser, transferAsset, fundWallet, getTransfers, getRecentContacts };
+const getUsdRates = async () =>
+    axios.get<GetUsdRatesResponse>("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json");
+
+export { api, getUser, transferAsset, fundWallet, getTransfers, getRecentContacts, getUsdRates };

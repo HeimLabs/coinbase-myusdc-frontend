@@ -58,3 +58,12 @@ export type RecentContact = {
 export type GetRecentContactsResponse = {
     recentContacts: RecentContact[]
 }
+
+export type GetUsdRatesResponse = {
+    date: string,
+    usd: {
+        cad: number,
+        aud: number,
+        gbp: number
+    }
+}
