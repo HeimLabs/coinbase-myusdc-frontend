@@ -1,22 +1,10 @@
 import { useMemo } from "react";
 import styles from "./QuickTransfer.module.scss";
-import { RecentContact } from "../../../types/api.types";
 import { useGetRecentContacts } from "../../../hooks/useGetRecentContacts";
-import Web3Avatar from "../../Web3Avatar";
+import { getImageFromUser } from "../../../utils";
 
 export default function QuickTransfer() {
     const { data } = useGetRecentContacts();
-
-    const getImageFromUser = (contact: RecentContact) => {
-        if (contact.destinationUser) {
-            if (contact.destinationUser.imageUrl)
-                return <img src={contact.destinationUser.imageUrl} alt="PFP" />
-            else
-                return <img src={`https://avatar.iran.liara.run/username?username=${contact.destinationUser.name.split(' ').join("+")}`} alt="PFP" />
-        } else {
-            return <Web3Avatar address={contact.destinationAddress} />
-        }
-    }
 
     const blanks = useMemo(() => {
         const recentContacts = data?.data?.recentContacts;

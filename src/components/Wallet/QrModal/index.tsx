@@ -5,6 +5,7 @@ import Modal from "../Modal";
 import { QRCodeSVG } from 'qrcode.react';
 import { useAppUser } from "../../../contexts/user.context";
 import { toast } from "react-toastify";
+import { shortAddress } from "../../../utils";
 
 export default function QrModal({ isOpen, setOpen }: { isOpen: boolean, setOpen: Dispatch<SetStateAction<boolean>> }) {
     const { user } = useAppUser();
@@ -27,7 +28,7 @@ export default function QrModal({ isOpen, setOpen }: { isOpen: boolean, setOpen:
                 <QRCodeSVG size={150} value={`ethereum:${user?.wallet.address}@84532?token=USDC`} />
                 {/* ADDRESS */}
                 <div className={styles.addressContainer}>
-                    <span className={styles.subtitle}>Your Address: {`${user?.wallet.address.slice(0, 5)}....${user?.wallet.address.slice(-4)}`}</span>
+                    <span className={styles.subtitle}>Your Address: {shortAddress(user?.wallet.address) || "NA"}</span>
                     <img onClick={handleCopy} src={copyIcon} alt="Copy" />
                 </div>
             </div>
