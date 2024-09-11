@@ -1,5 +1,70 @@
 @import "../../styles/variables";
 
 .main {
-    
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .monthContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+        padding: 20px;
+        gap: 30px;
+        border-radius: 10px;
+
+        .transferRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            .userDetails {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                .pfp {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                    width: 40px;
+                    overflow: hidden;
+                    border-radius: 100%;
+
+                    img {
+                        height: 40px;
+                        width: auto;
+                    }
+                }
+
+                .contentContainer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    justify-content: center;
+
+                    .title {
+                        font-weight: bold;
+                    }
+
+                    .subtitle {
+                        font-size: small;
+                        color: #AAAAAA;
+                    }
+                }
+            }
+
+            .amount {
+                color: #FF4B55;
+            }
+        }
+    }
 }
