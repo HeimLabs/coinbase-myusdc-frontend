@@ -8,17 +8,18 @@
     width: 100%;
     gap: 25px;
 
-    h4 {
-        font-size: medium;
-        font-weight: 400;
-    }
-
-    .walletContainer {
+    .sectionContainer {
         display: flex;
         align-items: start;
         justify-content: center;
         flex-direction: column;
         width: 100%;
         gap: 10px;
+
+        h4 {
+            font-size: medium;
+            font-weight: 400;
+            margin-left: 15px;
+        }
     }
 }

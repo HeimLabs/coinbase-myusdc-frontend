@@ -18,3 +18,4 @@ export { default as buyIcon } from "./buyIcon.svg";
 export { default as sendIcon } from "./sendIcon.svg";
 export { default as radioSelectedIcon } from "./radioSelectedIcon.svg";
 export { default as copyIcon } from "./copyIcon.svg";
+export { default as infoIcon } from "./infoIcon.svg";

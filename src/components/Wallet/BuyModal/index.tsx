@@ -20,7 +20,6 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
             setOpen(false);
     }, [isSuccess])
 
-
     return (
         <Modal isOpen={isOpen} setOpen={setOpen}>
             <div className={styles.main}>

@@ -1,0 +1,61 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    .vr {
+        height: 100%;
+        width: 1px;
+        background-color: black;
+        height: 78px;
+    }
+
+    .balanceContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 0px 20px;
+
+        .title {
+            color: #AAAAAA;
+            font-size: small;
+        }
+
+        .value {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .rewardsContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            img {
+                height: 16px;
+                width: auto;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        background: linear-gradient(180deg, #1E1E1E 0%, #0F0F0F 54.75%, #1E1E1E 100%);
+        font-size: x-small;
+        text-align: center;
+        padding: 20px;
+        visibility: hidden;
+        cursor: pointer;
+
+        &.open {
+            visibility: visible;
+        }
+    }
+}

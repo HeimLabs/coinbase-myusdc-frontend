@@ -5,6 +5,7 @@ export type User = {
     imageUrl: string;
     wallet: {
         usdBalance: number;
+        usdcBalance: number | null;
         id: string;
         address: string;
         rewards: {
