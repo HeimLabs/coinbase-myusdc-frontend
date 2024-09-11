@@ -22,17 +22,22 @@ export default function RootLayout() {
             publishableKey={PUBLISHABLE_KEY}
         >
             <UserProvider>
-                {/* HEADER HERE */}
-                <SignedIn>
-                    <Header />
-                </SignedIn>
-                <main className={styles.rootLayout}>
-                    <Outlet />
-                </main>
-                {/* BOTTOM NAV HERE */}
-                <SignedIn>
-                    <BottomNavBar />
-                </SignedIn>
+                <div className={styles.layoutContainer}>
+                    {/* HEADER HERE */}
+                    <SignedIn>
+                        <Header />
+                    </SignedIn>
+
+                    {/* MAIN CONTENT */}
+                    <main className={styles.rootLayout}>
+                        <Outlet />
+                    </main>
+
+                    {/* BOTTOM NAV HERE */}
+                    <SignedIn>
+                        <BottomNavBar />
+                    </SignedIn>
+                </div>
             </UserProvider>
         </ClerkProvider>
     )
