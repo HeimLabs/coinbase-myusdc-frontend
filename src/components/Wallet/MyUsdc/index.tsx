@@ -17,7 +17,7 @@ export default function MyUsdc() {
                     ? <span className={styles.value}>$ <Skeleton /></span>
                     : <span className={styles.value}>
                         ${user?.wallet?.usdcBalance?.toLocaleString(undefined,
-                            { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
+                            { maximumFractionDigits: 3, minimumFractionDigits: 2 }) || "NA"}
                     </span>}
 
             </div>
@@ -29,7 +29,7 @@ export default function MyUsdc() {
                         ? <span className={styles.value}>$ <Skeleton /></span>
                         : <span className={styles.value}>
                             ${user?.wallet?.rewards?.amount?.toLocaleString(undefined,
-                                { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
+                                { maximumFractionDigits: 3, minimumFractionDigits: 2 }) || "NA"}
                         </span>}
                     <img onClick={() => setIsOpen(true)} src={infoIcon} alt="Info" />
                 </div>
