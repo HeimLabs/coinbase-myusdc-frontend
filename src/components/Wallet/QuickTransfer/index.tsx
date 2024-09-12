@@ -20,7 +20,7 @@ export default function QuickTransfer() {
                 }
             </div>
         ));
-    }, [data?.data]);
+    }, [data?.data, isFetching]);
 
     return (
         <div className={styles.main}>
