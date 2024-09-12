@@ -56,10 +56,14 @@
         text-align: center;
         padding: 20px;
         visibility: hidden;
+        opacity: 0;
+        transition-duration: 0.3s;
         cursor: pointer;
 
         &.open {
+            opacity: 1;
             visibility: visible;
+            transition-duration: 0.3s;
         }
     }
 }
