@@ -13,6 +13,7 @@ import Register from './pages/Register'
 import Wallet from './pages/Wallet'
 import Transfers from './pages/Transfers'
 import Profile from './pages/Profile'
+import Send from './pages/Send'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
           { path: '/wallet/', element: <Wallet /> },
           { path: '/wallet/transfers', element: <Transfers /> },
           { path: '/wallet/profile', element: <Profile /> },
+          { path: '/wallet/send', element: <Send /> },
         ],
       },
     ],

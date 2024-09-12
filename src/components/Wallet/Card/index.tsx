@@ -4,9 +4,11 @@ import styles from "./Card.module.scss";
 import BuyModal from "../BuyModal";
 import { useState } from "react";
 import QrModal from "../QrModal";
+import { useNavigate } from "react-router-dom";
 
 export default function Card() {
     const { user } = useAppUser();
+    const navigate = useNavigate();
 
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
@@ -25,7 +27,7 @@ export default function Card() {
                 </div>
                 <div className={`${styles.cardRow} ${styles.bottomRow}`}>
                     <span>${user?.wallet.usdBalance.toLocaleString(undefined, { maximumFractionDigits: 3 })}</span>
-                    <img onClick={()=>setIsQrModalOpen(true)} src={qrIcon} alt="QR" />
+                    <img onClick={() => setIsQrModalOpen(true)} src={qrIcon} alt="QR" />
                 </div>
             </div>
             {/* ACTIONS */}
@@ -34,7 +36,7 @@ export default function Card() {
                     <img src={buyIcon} alt="Buy" />
                     <span>Buy USDC</span>
                 </button>
-                <button className={styles.actionBttn}>
+                <button onClick={() => navigate('/wallet/send')} className={styles.actionBttn}>
                     <img src={sendIcon} alt="Send" />
                     <span>Send USDC</span>
                 </button>

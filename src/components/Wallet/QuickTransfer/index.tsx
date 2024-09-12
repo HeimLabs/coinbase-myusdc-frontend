@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import styles from "./QuickTransfer.module.scss";
 import { useGetRecentContacts } from "../../../hooks/useGetRecentContacts";
 import { getImageFromUser } from "../../../utils";
+import { useNavigate } from "react-router-dom";
 
 export default function QuickTransfer() {
+    const navigate = useNavigate();
     const { data } = useGetRecentContacts();
 
     const blanks = useMemo(() => {
@@ -23,8 +25,18 @@ export default function QuickTransfer() {
         <div className={styles.main}>
             {data?.data.recentContacts.map((contact) => {
                 return (
-                    <div className={styles.contactContainer}>
-                       {getImageFromUser(contact)}
+                    <div
+                        onClick={() => {
+                            const searchParams = new URLSearchParams();
+                            searchParams.append("dest",
+                                contact.destinationUser
+                                    ? contact.destinationUser.email
+                                    : contact.destinationAddress
+                            );
+                            navigate({ pathname: `/wallet/send`, search: searchParams.toString() });
+                        }}
+                        className={styles.contactContainer}>
+                        {getImageFromUser(contact)}
                     </div>
                 )
             })}

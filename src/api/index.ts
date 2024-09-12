@@ -5,7 +5,8 @@ import {
     GetTransfersResponse,
     GetUsdRatesResponse,
     GetUserResponse,
-    TransferAssetRequest
+    TransferAssetRequest,
+    TransferAssetResponse
 } from "../types/api.types";
 
 const api = axios.create({
@@ -17,7 +18,7 @@ const getUser = async (token: string) =>
         { headers: { Authorization: `Bearer ${token}` } });
 
 const transferAsset = async (token: string, data: TransferAssetRequest) =>
-    api.post("/wallet/transfer-asset", data, { headers: { Authorization: `Bearer ${token}` } })
+    api.post<TransferAssetResponse>("/wallet/transfer-asset", data, { headers: { Authorization: `Bearer ${token}` } })
 
 const fundWallet = async (token: string, data: FundWalletRequest) =>
     api.post("/wallet/fund", data, { headers: { Authorization: `Bearer ${token}` } })

@@ -13,6 +13,8 @@ export default function Header() {
             setActiveTab('transfers');
         else if (pathname.includes("profile"))
             setActiveTab('profile');
+        else if (pathname.includes("send"))
+            setActiveTab('send');
         else
             setActiveTab('wallet');
     }, [pathname]);

@@ -24,7 +24,8 @@ const Web3Avatar: React.FC<Web3AvatarProps> = ({ address }) => {
       radial-gradient(at 99% 86%, var(--color-av-4) 0px, transparent 50%),
       radial-gradient(at 29% 88%, var(--color-av-5) 0px, transparent 50%)`,
     width: "100px", // Adjust as needed
-    height: "100px", // Adjust as needed
+    height: "100px", // Adjust as needed,
+    cursor: "pointer"
   } as React.CSSProperties;
 
   return <div style={avatarStyle} />;

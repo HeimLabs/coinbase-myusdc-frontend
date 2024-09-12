@@ -1,0 +1,151 @@
+@import "../../styles/variables";
+@import "../../styles/animations";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    gap: 20px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+
+        span {
+            font-size: small;
+            margin-left: 15px;
+        }
+
+        input {
+            width: 100%;
+            background-color: black;
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            color: white;
+        }
+    }
+
+    .amountContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 50px;
+
+        span {
+            font-size: small;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px 0px;
+            text-align: center;
+            border: none;
+            outline: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            font-size: xx-large;
+
+            &::placeholder {
+                color: darken(#797979, 40%);
+            }
+        }
+    }
+
+    .fadingHr {
+        width: 95%;
+        height: 1px;
+        border: none;
+        background: linear-gradient(to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0));
+    }
+
+    .loading {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.2) 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+}
+
+.bttn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 25px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+
+    &.dark {
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+
+        &:hover {
+            background-color: darken(white, 95%);
+        }
+    }
+
+    &.light {
+        color: black;
+        background-color: white;
+
+        &:hover {
+            background-color: darken(white, 10%);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+.successMain {
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 40px;
+
+    .title {
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        font-size: small;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    .actionContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+
+        button {
+            padding: 10px 20px;
+            font-size: small;
+        }
+    }
+}
