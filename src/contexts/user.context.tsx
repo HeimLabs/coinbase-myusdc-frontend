@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
 import { useGetUser } from "../hooks/useGetUser";
 import { User } from "../types/api.types";
 import { useAuth, useUser } from "@clerk/clerk-react";
@@ -9,13 +9,17 @@ type UserContextType = {
     clerkUser: ReturnType<typeof useUser> | undefined
     isUserLoading: boolean | undefined,
     signOut: (() => void) | undefined
+    hasAnimated: boolean | undefined, 
+    setHasAnimated: Dispatch<SetStateAction<boolean>> | undefined,
 }
 
 const UserContext = createContext<UserContextType>({
     user: undefined,
     clerkUser: undefined,
     isUserLoading: undefined,
-    signOut: undefined
+    signOut: undefined,
+    hasAnimated: undefined,
+    setHasAnimated: undefined
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
@@ -23,6 +27,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const getUser = useGetUser();
     const { signOut: clerkSignOut } = useAuth();
     const clerkUser = useUser();
+
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     const signOut = async () => {
         await clerkSignOut();
@@ -33,7 +39,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         user: getUser.data?.data,
         isUserLoading: getUser.isLoading || getUser.isFetching,
         clerkUser,
-        signOut
+        signOut,
+        hasAnimated,
+        setHasAnimated
     }}>
         {children}
     </UserContext.Provider>;
