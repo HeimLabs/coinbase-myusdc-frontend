@@ -10,16 +10,13 @@ export default function QuickTransfer() {
 
     const blanks = useMemo(() => {
         const recentContacts = data?.data?.recentContacts;
-        if (recentContacts && recentContacts.length < 5) {
-            const blankCount = 5 - recentContacts.length;
-            return Array.from({ length: blankCount }, (_, index) => (
-                <div key={index} className={styles.contactContainer}>
-                    <div className={styles.blank} />
-                </div>
-            ));
-        }
-        return [];
-    }, [data?.data?.recentContacts]);
+        const blankCount = recentContacts == undefined ? 5 : 5 - (recentContacts?.length || 0);
+        return Array.from({ length: blankCount }, (_, index) => (
+            <div key={index} className={styles.contactContainer}>
+                <div className={styles.blank} />
+            </div>
+        ));
+    }, [data?.data]);
 
     return (
         <div className={styles.main}>
@@ -40,7 +37,7 @@ export default function QuickTransfer() {
                     </div>
                 )
             })}
-            {data?.data?.recentContacts?.length && data?.data?.recentContacts.length < 5 && blanks}
+            {blanks}
         </div>
     );
 }
