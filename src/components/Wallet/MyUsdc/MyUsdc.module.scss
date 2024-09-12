@@ -28,15 +28,19 @@
             font-size: small;
         }
 
-        .value {
+        span {
             font-size: larger;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            min-width: 70px;
         }
 
         .rewardsContainer {
             display: flex;
             align-items: center;
             gap: 10px;
+
             img {
                 height: 16px;
                 width: auto;

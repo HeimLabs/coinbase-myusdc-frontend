@@ -47,6 +47,10 @@
                 span {
                     font-size: xx-large;
                     font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    min-width: 50%;
                 }
 
                 img {

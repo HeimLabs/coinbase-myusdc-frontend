@@ -1,3 +1,4 @@
+import Skeleton from "react-loading-skeleton";
 import {
     australiaFlag,
     australiaFlagBg,
@@ -12,7 +13,7 @@ import { useGetUsdRates } from "../../../hooks/useGetUsdRates";
 import styles from "./ExchangeRate.module.scss";
 
 export default function ExchangeRate() {
-    const { data } = useGetUsdRates();
+    const { data, isFetching } = useGetUsdRates();
 
     return (
         <div className={styles.main}>
@@ -23,10 +24,12 @@ export default function ExchangeRate() {
                     <span>Canadian Dollar</span>
                 </div>
                 <div className={styles.rateContainer}>
-                    <span className={styles.price}>
-                        {data?.data.usd.cad
-                            .toLocaleString(undefined, { maximumFractionDigits: 4 }) || "NA"}
-                    </span>
+                    {isFetching
+                        ? <Skeleton width={'80px'} height={'20px'} />
+                        : <span className={styles.price}>
+                            {data?.data.usd.cad
+                                .toLocaleString(undefined, { maximumFractionDigits: 4 }) || "NA"}
+                        </span>}
                     <div className={`${styles.change} ${styles.changeDown}`}>
                         <span>NA%</span>
                         <img src={negativeArrowIcon} alt="Arrow Up" />

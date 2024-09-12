@@ -5,9 +5,10 @@ import BuyModal from "../BuyModal";
 import { useState } from "react";
 import QrModal from "../QrModal";
 import { useNavigate } from "react-router-dom";
+import Skeleton from 'react-loading-skeleton';
 
 export default function Card() {
-    const { user } = useAppUser();
+    const { user, isUserLoading } = useAppUser();
     const navigate = useNavigate();
 
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
@@ -26,7 +27,9 @@ export default function Card() {
                     <img src={amexLogo} alt="AMEX" />
                 </div>
                 <div className={`${styles.cardRow} ${styles.bottomRow}`}>
-                    <span>${user?.wallet.usdBalance.toLocaleString(undefined, { maximumFractionDigits: 3 })}</span>
+                    {isUserLoading
+                        ? <span>$ <Skeleton /></span>
+                        : <span>$ {user?.wallet.usdBalance.toLocaleString(undefined, { maximumFractionDigits: 3 })}</span>}
                     <img onClick={() => setIsQrModalOpen(true)} src={qrIcon} alt="QR" />
                 </div>
             </div>

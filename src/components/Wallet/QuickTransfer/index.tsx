@@ -3,17 +3,21 @@ import styles from "./QuickTransfer.module.scss";
 import { useGetRecentContacts } from "../../../hooks/useGetRecentContacts";
 import { getImageFromUser } from "../../../utils";
 import { useNavigate } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 export default function QuickTransfer() {
     const navigate = useNavigate();
-    const { data } = useGetRecentContacts();
+    const { data, isFetching } = useGetRecentContacts();
 
     const blanks = useMemo(() => {
         const recentContacts = data?.data?.recentContacts;
         const blankCount = recentContacts == undefined ? 5 : 5 - (recentContacts?.length || 0);
         return Array.from({ length: blankCount }, (_, index) => (
             <div key={index} className={styles.contactContainer}>
-                <div className={styles.blank} />
+                {isFetching
+                    ? <Skeleton width={'80px'} height={'80px'} />
+                    : <div className={styles.blank} />
+                }
             </div>
         ));
     }, [data?.data]);

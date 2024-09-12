@@ -19,6 +19,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const queryClient = new QueryClient()
 
@@ -46,8 +48,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
+      <SkeletonTheme baseColor='rgba(0,0,0,0.2)' highlightColor='rgba(255,255,255,0.3)'>
         <RouterProvider router={router} />
         <ToastContainer theme='dark' />
+      </SkeletonTheme>
     </QueryClientProvider>
   </StrictMode>,
 )

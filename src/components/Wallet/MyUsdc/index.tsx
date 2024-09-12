@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { infoIcon } from "../../../assets";
 import { useAppUser } from "../../../contexts/user.context";
 import styles from "./MyUsdc.module.scss";
+import Skeleton from "react-loading-skeleton";
 
 export default function MyUsdc() {
-    const { user } = useAppUser();
+    const { user, isUserLoading } = useAppUser();
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -12,19 +13,24 @@ export default function MyUsdc() {
         <div className={styles.main}>
             <div className={styles.balanceContainer}>
                 <span className={styles.title}>USDC Balance</span>
-                <span className={styles.value}>
-                    ${user?.wallet?.usdcBalance?.toLocaleString(undefined,
-                        { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
-                </span>
+                {isUserLoading
+                    ? <span className={styles.value}>$ <Skeleton /></span>
+                    : <span className={styles.value}>
+                        ${user?.wallet?.usdcBalance?.toLocaleString(undefined,
+                            { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
+                    </span>}
+
             </div>
             <div className={styles.vr} />
             <div className={styles.balanceContainer}>
                 <span className={styles.title}>Rewards</span>
                 <div className={styles.rewardsContainer}>
-                    <span className={styles.value}>
-                        ${user?.wallet?.rewards?.amount?.toLocaleString(undefined,
-                            { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
-                    </span>
+                    {isUserLoading
+                        ? <span className={styles.value}>$ <Skeleton /></span>
+                        : <span className={styles.value}>
+                            ${user?.wallet?.rewards?.amount?.toLocaleString(undefined,
+                                { maximumFractionDigits: 2, minimumFractionDigits: 2 }) || "NA"}
+                        </span>}
                     <img onClick={() => setIsOpen(true)} src={infoIcon} alt="Info" />
                 </div>
             </div>
