@@ -5,12 +5,32 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
     position: relative;
-    background: linear-gradient(360deg, #000000 0%, #1E1E1E 59.13%), #000000;
-    overflow: hidden;
-    z-index: 10;
+    z-index: 20;
 
+    visibility: visible;
+    opacity: 1;
+    transition-duration: 0.6s;
+
+    &.close {
+        visibility: hidden;
+        opacity: 0;
+        transition-duration: 0.6s;
+    }
+
+    .stepContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        max-width: 450px;
+        transition-duration: 0.3s;
+        background: linear-gradient(360deg, #000000 0%, #1E1E1E 59.13%), #000000;
+        overflow: hidden;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+    }
 
     .logo {
         width: 100%;

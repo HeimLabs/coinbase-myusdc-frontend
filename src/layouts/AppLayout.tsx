@@ -8,8 +8,9 @@ export default function AppLayout() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (isLoaded && !userId) {
-            navigate('/login')
+        if (isLoaded) {
+            if (!userId) navigate('/login')
+            else if (userId) navigate('/wallet')
         }
     }, [isLoaded])
 

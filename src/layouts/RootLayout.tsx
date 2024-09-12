@@ -4,7 +4,7 @@ import { UserProvider } from '../contexts/user.context.tsx';
 import BottomNavBar from '../components/BottomNavBar';
 import Header from '../components/Header';
 import styles from "../styles/Layout.module.scss";
-
+import Splash from '../pages/Splash/index.tsx';
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -37,6 +37,7 @@ export default function RootLayout() {
                     <SignedIn>
                         <BottomNavBar />
                     </SignedIn>
+                    <Splash />
                 </div>
             </UserProvider>
         </ClerkProvider>

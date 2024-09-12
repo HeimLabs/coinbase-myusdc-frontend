@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './layouts/RootLayout.tsx'
 import AppLayout from './layouts/AppLayout.tsx'
 
-import Splash from './pages/Splash'
+import Onboarding from './pages/Onboarding/index.tsx'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Wallet from './pages/Wallet'
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   {
     element: <RootLayout />,
     children: [
-      { path: '/', element: <Splash /> },
+      { path: '/', element: <Onboarding /> },
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },
       {

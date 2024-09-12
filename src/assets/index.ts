@@ -23,6 +23,7 @@ export { default as infoIcon } from "./infoIcon.svg";
 export { default as negativeArrowIcon } from "./negativeArrowIcon.svg";
 export { default as positiveArrowIcon } from "./positiveArrowIcon.svg";
 export { default as successCheckIcon } from "./successCheckIcon.svg";
+export { default as nextIcon } from "./nextIcon.svg";
 
 // FLAGS
 export { default as canadaFlagBg } from "./flags/canadaFlagBg.png";
@@ -31,3 +32,8 @@ export { default as britainFlagBg } from "./flags/britainFlagBg.png";
 export { default as canadaFlag } from "./flags/canadaFlag.svg";
 export { default as australiaFlag } from "./flags/australiaFlag.svg";
 export { default as britainFlag } from "./flags/britainFlag.svg";
+
+// ONBOARDING
+export { default as onboarding01 } from "./onboarding/onboarding01.png";
+export { default as onboarding02 } from "./onboarding/onboarding02.png";
+export { default as onboarding03 } from "./onboarding/onboarding03.png";
