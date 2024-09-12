@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import QuickTransfer from "../../components/Wallet/QuickTransfer";
 import styles from "./Send.module.scss";
 import { useTransferAsset } from "../../hooks/useTransferAsset";
@@ -37,6 +37,10 @@ export default function Send() {
     const handleViewTransfer = () => {
         window.open(data?.data.transactionLink, "_blank");
     }
+
+    useEffect(() => {
+        setDestination(params.get("dest") || "")
+    }, [params])
 
     if (isSuccess)
         return (
