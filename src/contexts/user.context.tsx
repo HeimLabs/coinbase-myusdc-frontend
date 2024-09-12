@@ -9,8 +9,10 @@ type UserContextType = {
     clerkUser: ReturnType<typeof useUser> | undefined
     isUserLoading: boolean | undefined,
     signOut: (() => void) | undefined
-    hasAnimated: boolean | undefined, 
+    hasAnimated: boolean | undefined,
     setHasAnimated: Dispatch<SetStateAction<boolean>> | undefined,
+    cardBottom: number | undefined,
+    setCardBottom: Dispatch<SetStateAction<number | undefined>> | undefined
 }
 
 const UserContext = createContext<UserContextType>({
@@ -19,7 +21,9 @@ const UserContext = createContext<UserContextType>({
     isUserLoading: undefined,
     signOut: undefined,
     hasAnimated: undefined,
-    setHasAnimated: undefined
+    setHasAnimated: undefined,
+    cardBottom: undefined,
+    setCardBottom: undefined
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
@@ -29,6 +33,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const clerkUser = useUser();
 
     const [hasAnimated, setHasAnimated] = useState(false);
+    const [cardBottom, setCardBottom] = useState<number>();
 
     const signOut = async () => {
         await clerkSignOut();
@@ -41,7 +46,9 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         clerkUser,
         signOut,
         hasAnimated,
-        setHasAnimated
+        setHasAnimated,
+        cardBottom,
+        setCardBottom
     }}>
         {children}
     </UserContext.Provider>;

@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.scss";
+import { useAppUser } from "../../../contexts/user.context";
 
 type ModalProps = {
     isOpen: boolean;
@@ -9,6 +10,8 @@ type ModalProps = {
 
 export default function Modal({ isOpen, setOpen, children }: ModalProps) {
     const modalRef = useRef<HTMLDivElement | null>(null);
+    const { cardBottom } = useAppUser();
+    const [modalHeight, setModalHeight] = useState("50vh")
 
     // Handle Modal Close
     useEffect(() => {
@@ -27,9 +30,25 @@ export default function Modal({ isOpen, setOpen, children }: ModalProps) {
         };
     }, [isOpen, setOpen]);
 
+    // Calculate modal height
+    useEffect(() => {
+        const calculateModalHeight = () => {
+            if (cardBottom) {
+                const _modalHeight = window.innerHeight - cardBottom - 20;
+                setModalHeight(`${_modalHeight}px`)
+            }
+        }
+
+        calculateModalHeight();
+
+        window.addEventListener('resize', calculateModalHeight);
+
+        return () => window.removeEventListener('resize', calculateModalHeight);
+    }, [cardBottom])
+
     return (
         <div className={`${styles.main} ${isOpen ? styles.open : ""}`}>
-            <div ref={modalRef} className={`${styles.modal} ${isOpen ? styles.open : ""}`}>
+            <div style={{ height: modalHeight }} ref={modalRef} className={`${styles.modal} ${isOpen ? styles.open : ""}`}>
                 {children}
             </div>
         </div>

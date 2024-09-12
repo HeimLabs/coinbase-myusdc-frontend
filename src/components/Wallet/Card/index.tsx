@@ -2,21 +2,31 @@ import { amexLogo, buyIcon, qrIcon, sendIcon } from "../../../assets";
 import { useAppUser } from "../../../contexts/user.context";
 import styles from "./Card.module.scss";
 import BuyModal from "../BuyModal";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import QrModal from "../QrModal";
 import { useNavigate } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton';
 
 export default function Card() {
-    const { user, isUserLoading } = useAppUser();
+    const { user, isUserLoading, setCardBottom } = useAppUser();
     const navigate = useNavigate();
+    const cardRef = useRef<HTMLDivElement>(null);
 
     const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
     const [isQrModalOpen, setIsQrModalOpen] = useState(false);
 
+    // Find bottom of card
+    useEffect(() => {
+        if (cardRef && cardRef.current && setCardBottom) {
+            const cardRect = cardRef.current.getBoundingClientRect();
+            console.log("cardRect.bottom: ", cardRect.bottom);
+            setCardBottom(cardRect.bottom);
+        }
+    }, [cardRef, setCardBottom])
+
 
     return (
-        <div className={styles.cardContainer}>
+        <div ref={cardRef} className={styles.cardContainer}>
             {/* CARD */}
             <div className={styles.card}>
                 <div className={`${styles.cardRow} ${styles.topRow}`}>
