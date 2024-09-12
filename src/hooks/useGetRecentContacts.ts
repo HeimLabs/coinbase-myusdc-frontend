@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
+import { keepPreviousData, useQuery } from "@tanstack/react-query"
 import { getRecentContacts } from "../api"
 import { useAuth } from "@clerk/clerk-react"
 
@@ -8,6 +8,7 @@ export const useGetRecentContacts = () => {
     return useQuery({
         queryKey: ["getRecentContacts"],
         queryFn: async () => getRecentContacts((await getToken()) as string),
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: false,
+        placeholderData: keepPreviousData
     })
 }
