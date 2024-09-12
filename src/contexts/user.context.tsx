@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 import { useGetUser } from "../hooks/useGetUser";
 import { User } from "../types/api.types";
 import { useAuth, useUser } from "@clerk/clerk-react";
+import { useQueryClient } from "@tanstack/react-query";
 
 type UserContextType = {
     user: User | undefined,
@@ -18,9 +19,15 @@ const UserContext = createContext<UserContextType>({
 });
 
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+    const queryClient = useQueryClient();
     const getUser = useGetUser();
-    const { signOut } = useAuth();
+    const { signOut: clerkSignOut } = useAuth();
     const clerkUser = useUser();
+
+    const signOut = async () => {
+        await clerkSignOut();
+        await queryClient.resetQueries({ queryKey: ['getUser'] });
+    }
 
     return <UserContext.Provider value={{
         user: getUser.data?.data,
