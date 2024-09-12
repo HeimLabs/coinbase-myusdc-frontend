@@ -4,6 +4,7 @@
     min-height: 100vh;
 
     .rootLayout {
+        // display: flex;
         flex-grow: 1; 
         position: relative;
         width: 100%;
@@ -13,5 +14,7 @@
 }
 
 .appLayout {
+    // display: flex;
+    // flex-grow: 1; 
     padding: 0px 20px;
 }
