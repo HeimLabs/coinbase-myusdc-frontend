@@ -21,16 +21,16 @@ export default function Transfers() {
         )
     }
 
-    const skeletonArray = Array.from({ length: 5 }, () => <SkeletonTransfer />);
+    const skeletonArray = Array.from({ length: 5 }, (_, index) => <SkeletonTransfer key={index} />);
 
     return (
         <div className={styles.main}>
             <div className={styles.monthContainer}>
                 {isFetching
                     ? skeletonArray
-                    : data?.data.transfers.map((transfer) => {
+                    : data?.data.transfers.map((transfer, index) => {
                         return (
-                            <div className={styles.transferRow}>
+                            <div key={index} className={styles.transferRow}>
                                 <div className={styles.userDetails}>
                                     <div className={styles.pfp}>{getImageFromUser(transfer)}</div>
                                     <div className={styles.contentContainer}>

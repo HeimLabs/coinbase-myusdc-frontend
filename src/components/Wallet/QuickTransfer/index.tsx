@@ -24,9 +24,10 @@ export default function QuickTransfer() {
 
     return (
         <div className={styles.main}>
-            {data?.data.recentContacts.map((contact) => {
+            {data?.data.recentContacts.map((contact, index) => {
                 return (
                     <div
+                        key={index}
                         onClick={() => {
                             const searchParams = new URLSearchParams();
                             searchParams.append("dest",
