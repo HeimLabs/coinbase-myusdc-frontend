@@ -31,7 +31,7 @@ export default function QuickTransfer() {
                         onClick={() => {
                             const searchParams = new URLSearchParams();
                             searchParams.append("dest",
-                                contact.destinationUser
+                                contact.destinationUser?.email
                                     ? contact.destinationUser.email
                                     : contact.destinationAddress
                             );

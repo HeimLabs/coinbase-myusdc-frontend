@@ -15,6 +15,15 @@ export type User = {
     }
 }
 
+export type DestinationUser = {
+    name: string;
+    email: string | undefined;
+    imageUrl: string;
+    wallet: {
+        address: string
+    }
+}
+
 export type GetUserResponse = User;
 
 export type TransferAssetRequest = {
@@ -52,7 +61,7 @@ export type GetTransfersResponse = {
 
 export type RecentContact = {
     destinationAddress: string,
-    destinationUser: User | null
+    destinationUser: User | DestinationUser | null
 }
 
 export type GetRecentContactsResponse = {
