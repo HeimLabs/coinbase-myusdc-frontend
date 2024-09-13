@@ -31,10 +31,10 @@ export default function Card() {
             <div className={styles.card}>
                 <div className={`${styles.cardRow} ${styles.topRow}`}>
                     <div className={styles.cardInfo}>
-                        <span>American Express Card</span>
+                        <span>Sample Bank Express Card</span>
                         <span>1234 5678 9101 1123</span>
                     </div>
-                    <img src={amexLogo} alt="AMEX" />
+                    <img src={amexLogo} alt="Some Bank" />
                 </div>
                 <div className={`${styles.cardRow} ${styles.bottomRow}`}>
                     {isUserLoading
