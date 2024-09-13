@@ -54,7 +54,7 @@ export default function Onboarding() {
             <div className={`${styles.stepContainer} ${styles.onboarding} ${step == 2 ? styles.active : ""}`}>
                 <img className={styles.onboardingImage} src={onboarding03} alt="Onboarding Image" />
                 <span className={styles.onboardingText}>
-                    Start earning 3% APY in
+                    Start earning 3%
                     USDC rewards, or send
                     USDC to anyone in the
                     world at zero cost.

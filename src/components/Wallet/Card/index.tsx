@@ -1,4 +1,4 @@
-import { amexLogo, buyIcon, qrIcon, sendIcon } from "../../../assets";
+import { amexLogo, buyIcon, qrIcon, sendIcon, warningIcon } from "../../../assets";
 import { useAppUser } from "../../../contexts/user.context";
 import styles from "./Card.module.scss";
 import BuyModal from "../BuyModal";
@@ -41,6 +41,11 @@ export default function Card() {
                         ? <span>$ <Skeleton /></span>
                         : <span>$ {user?.wallet.usdBalance.toLocaleString(undefined, { maximumFractionDigits: 3 })}</span>}
                     <img onClick={() => setIsQrModalOpen(true)} src={qrIcon} alt="QR" />
+                </div>
+                {/* DISCLAIMER */}
+                <div className={styles.disclaimer}>
+                    <img src={warningIcon} alt="Warning" />
+                    Test balance, not real money
                 </div>
             </div>
             {/* ACTIONS */}

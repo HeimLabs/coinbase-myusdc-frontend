@@ -36,7 +36,7 @@ export default function MyUsdc() {
             </div>
             <div onClick={() => setIsOpen(false)} className={`${styles.overlay} ${isOpen ? styles.open : ""}`}>
                 USDC is the world's digital dollar that's fully backed 1-to-1 by
-                real US dollars. Start earning 3% APY in USDC rewards, or send
+                real US dollars. Start earning 3% USDC rewards, or send
                 USDC to anyone in the world at zero cost.
             </div>
         </div>

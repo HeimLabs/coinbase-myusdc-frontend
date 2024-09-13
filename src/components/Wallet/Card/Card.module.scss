@@ -59,6 +59,23 @@
                 }
             }
         }
+
+        .disclaimer {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            font-size: x-small;
+            text-align: left;
+            width: 100%;
+            color: white;
+            gap: 3px;
+            opacity: 0.5;
+
+            img {
+                height: 15px;
+                width: auto;
+            }
+        }
     }
 
     .actionContainer {

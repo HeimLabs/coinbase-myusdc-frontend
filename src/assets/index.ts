@@ -24,6 +24,7 @@ export { default as negativeArrowIcon } from "./negativeArrowIcon.svg";
 export { default as positiveArrowIcon } from "./positiveArrowIcon.svg";
 export { default as successCheckIcon } from "./successCheckIcon.svg";
 export { default as nextIcon } from "./nextIcon.svg";
+export { default as warningIcon } from "./warningIcon.svg";
 
 // FLAGS
 export { default as canadaFlagBg } from "./flags/canadaFlagBg.png";
