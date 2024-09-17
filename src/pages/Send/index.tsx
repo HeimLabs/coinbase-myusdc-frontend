@@ -49,7 +49,10 @@ export default function Send() {
                 <span className={styles.subtitle}>You’ve just taken part in the future of finance,
                     powered by CDP SDK. To learn more about USDC
                     and the technology powering this demo, check
-                    out <a href="">our docs</a>  or <a href="">contact us</a> </span>
+                    out <a href="https://docs.cdp.coinbase.com/mpc-wallet/docs/welcome" target="_blank">our docs </a>
+                    or <a href="https://app.deform.cc/form/30138814-ece7-4a5d-bd30-305b4a687a6f" target="_blank">contact us </a>
+                    or <a href="https://discord.com/invite/cdp" target="_blank">join the CDP Discord</a>
+                </span>
                 <img src={successCheckIcon} alt="Success Check" />
                 <span className={styles.subtitle}>Your transacton was completed successfully!</span>
                 <div className={styles.actionContainer}>

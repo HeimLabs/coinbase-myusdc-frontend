@@ -16,10 +16,40 @@
         align-items: center;
         justify-content: space-between;
 
-        .logo {  
-            height: 45px;
-            width: auto;
+        .leftContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            .logo {
+                height: 45px;
+                width: auto;
+            }
+
+            .buildContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                gap: 5px;
+                background-color: lighten(black, 10%);
+                padding: 5px 10px;
+                border-radius: 10px;
+                cursor: pointer;
+
+                img {
+                    height: 14px;
+                    width: auto;
+                }
+
+                span {
+                    color: #0051FD;
+                    font-weight: 100;
+                }
+            }
         }
+
 
         .profile {
             height: 40px;

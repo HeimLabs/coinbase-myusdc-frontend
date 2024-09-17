@@ -1,5 +1,8 @@
+// LOGOS
 export { default as myUsdcLogo } from "./myUsdcLogo.png";
 export { default as myUsdcAltLogo } from "./myUsdcLogo.png";
+export { default as coinbaseLogo } from "./coinbaseLogo.png";
+
 export { default as usdc01 } from "./coins/usdc01.png";
 export { default as usdc02 } from "./coins/usdc02.png";
 export { default as usdc03 } from "./coins/usdc03.png";
