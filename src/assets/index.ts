@@ -41,3 +41,10 @@ export { default as britainFlag } from "./flags/britainFlag.svg";
 export { default as onboarding01 } from "./onboarding/onboarding01.png";
 export { default as onboarding02 } from "./onboarding/onboarding02.png";
 export { default as onboarding03 } from "./onboarding/onboarding03.png";
+
+// AVATARS
+export { default as avatar01 } from "./avatars/avatar01.png";
+export { default as avatar02 } from "./avatars/avatar02.png";
+export { default as avatar03 } from "./avatars/avatar03.png";
+export { default as avatar04 } from "./avatars/avatar04.png";
+export { default as avatar05 } from "./avatars/avatar05.png";

@@ -3,6 +3,7 @@ import { getRecentContacts } from "../api"
 import { useAuth } from "@clerk/clerk-react"
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import { GetRecentContactsResponse, RecentContact } from "../types/api.types";
+import { avatar01, avatar02, avatar03, avatar04, avatar05 } from "../assets";
 
 export const useGetRecentContacts = () => {
     const { getToken } = useAuth();
@@ -13,7 +14,7 @@ export const useGetRecentContacts = () => {
             destinationUser: {
                 email: undefined,
                 name: 'Vitalik Buterin',
-                imageUrl: 'https://avatar.iran.liara.run/public/49',
+                imageUrl: avatar01,
                 wallet: {
                     address: 'vitalik.eth'
                 }
@@ -24,7 +25,7 @@ export const useGetRecentContacts = () => {
             destinationUser: {
                 email: undefined,
                 name: 'Dan Kim',
-                imageUrl: 'https://avatar.iran.liara.run/public/40',
+                imageUrl: avatar02,
                 wallet: {
                     address: 'dan.base.eth'
                 }
@@ -35,7 +36,7 @@ export const useGetRecentContacts = () => {
             destinationUser: {
                 email: undefined,
                 name: 'Jesse Pollak',
-                imageUrl: 'https://avatar.iran.liara.run/public/41',
+                imageUrl: avatar03,
                 wallet: {
                     address: 'jesse.base.eth'
                 }
@@ -46,7 +47,7 @@ export const useGetRecentContacts = () => {
             destinationUser: {
                 email: undefined,
                 name: 'Yuga Cohler',
-                imageUrl: 'https://avatar.iran.liara.run/public/32',
+                imageUrl: avatar04,
                 wallet: {
                     address: 'yuga.eth'
                 }
@@ -57,7 +58,7 @@ export const useGetRecentContacts = () => {
             destinationUser: {
                 email: undefined,
                 name: 'Josh Nickerson',
-                imageUrl: 'https://avatar.iran.liara.run/public/6',
+                imageUrl: avatar05,
                 wallet: {
                     address: 'jnix.base.eth'
                 }
