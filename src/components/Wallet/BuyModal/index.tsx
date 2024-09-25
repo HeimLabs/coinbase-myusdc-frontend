@@ -54,7 +54,12 @@ export default function BuyModal({ isOpen, setOpen }: { isOpen: boolean, setOpen
                     </div>
                 </div>
                 <div className={styles.fadingHr} />
-                <button className={`${isPending ? styles.loading : ""}`} onClick={() => fundWallet()} disabled={isPending}>Deposit</button>
+                <button
+                    className={`${isPending ? styles.loading : ""}`}
+                    onClick={() => fundWallet()}
+                    disabled={isPending || !amount}>
+                    Deposit
+                </button>
             </div>
         </Modal>
     );

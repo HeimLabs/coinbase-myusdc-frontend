@@ -12,6 +12,10 @@ export type User = {
             amount: number;
             lastUpdated: Date;
         };
+    },
+    faucet: {
+        amount: number,
+        lastRequested: Date
     }
 }
 
