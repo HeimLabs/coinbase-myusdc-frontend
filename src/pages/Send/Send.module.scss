@@ -23,6 +23,10 @@
             margin-left: 15px;
         }
 
+        .note {
+            color: #797979;
+        }
+
         input {
             width: 100%;
             background-color: black;
@@ -43,6 +47,16 @@
 
         span {
             font-size: small;
+        }
+
+        .balance {
+            margin-top: 10px;
+            color: #797979;
+
+            .value {
+                color: white;
+                font-weight: 100;
+            }
         }
 
         input {
@@ -117,7 +131,7 @@
 }
 
 .successMain {
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;

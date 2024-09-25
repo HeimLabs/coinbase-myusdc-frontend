@@ -5,14 +5,18 @@ import { useTransferAsset } from "../../hooks/useTransferAsset";
 import { Coinbase } from "@coinbase/coinbase-sdk";
 import { successCheckIcon } from "../../assets";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useAppUser } from "../../contexts/user.context";
 
 export default function Send() {
     const navigate = useNavigate();
     const [params] = useSearchParams();
-    const [destination, setDestination] = useState<string>(params.get("dest") || "");
-    const [amount, setAmount] = useState<number>(0);
+    const { user } = useAppUser();
 
-    const { transferAsset, data, isPending, isSuccess, reset } = useTransferAsset(destination, Coinbase.assets.Usdc, amount);
+    const [destination, setDestination] = useState<string>(params.get("dest") || "");
+    const [amount, setAmount] = useState<number>();
+
+    const { transferAsset, data, isPending, isSuccess, reset } =
+        useTransferAsset(destination, Coinbase.assets.Usdc, amount || 0);
 
     const handleDestinationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const _destination = e.target.value;
@@ -66,7 +70,7 @@ export default function Send() {
         return (
             <form onSubmit={handleSumbit} className={styles.main}>
                 <div className={styles.container}>
-                    <span>Enter recipient Wallet Address or Email Address</span>
+                    <span>Enter recipient Wallet Address or Email Address*</span>
                     <input
                         type="text"
                         placeholder="Wallet Address / Email Address"
@@ -74,6 +78,7 @@ export default function Send() {
                         onChange={handleDestinationChange}
                         required
                     />
+                    <span className={styles.note}>*Email address only applicable for registered users</span>
                 </div>
                 <div className={styles.container}>
                     <span>Recents</span>
@@ -88,11 +93,15 @@ export default function Send() {
                         onChange={handleAmountChange}
                     />
                     <div className={styles.fadingHr} />
+                    <span className={styles.balance}>
+                        Balance:
+                        <span className={styles.value}> {user?.wallet.usdcBalance} USDC</span>
+                    </span>
                 </div>
                 <button
                     type="submit"
                     className={`${styles.bttn} ${styles.dark} ${isPending ? styles.loading : ""}`}
-                    disabled={isPending}>
+                    disabled={isPending || !amount || !destination}>
                     Send
                 </button>
             </form>
