@@ -90,6 +90,7 @@ export default function Send() {
                         type="number"
                         placeholder="USDC Amount"
                         value={amount}
+                        step={0.0001}
                         onChange={handleAmountChange}
                     />
                     <div className={styles.fadingHr} />
