@@ -21,8 +21,6 @@ export default function Onboarding() {
 
     return (
         <div className={styles.main}>
-            {/* @todo - fix stepper here */}
-            {/* @todo - fix button */}
             {/* ONBOARDING-1 */}
             <div className={`${styles.stepContainer} ${styles.onboarding} ${step == 0 ? styles.active : ""}`}>
                 <img className={styles.onboardingImage} src={onboarding01} alt="Onboarding Image" />

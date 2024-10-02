@@ -37,9 +37,6 @@ export default function Transfers() {
                                         {transfer.destinationUser
                                             ? <span className={styles.title}>{transfer.destinationUser.name}</span>
                                             : <span className={styles.title}>{shortAddress(transfer.destinationAddress)}</span>}
-                                        {/* {transfer.destinationUser
-                                        ? <span className={styles.subtitle}>{transfer.destinationUser.email}</span>
-                                        : <span className={styles.subtitle}>{transfer.id}</span>} */}
                                         <span className={styles.subtitle}>Status: {transfer.status}</span>
                                     </div>
                                 </div>
